@@ -22,11 +22,12 @@
 .pagination button {
     margin: 5px 5px;
     padding: 10px 15px;
-    background-color: var(--cerulean);
+    background-color: var(--blue);
     font-family: 'Rubik';
     border: none;
     border-radius: 4px;
     font-weight: 500;
+    color: white;
     cursor: pointer;
 }
 

@@ -47,7 +47,7 @@ p {
 }
 
 strong {
-    color: var(--cerulean);
+    color: white;
 }
 
 hr {
@@ -91,6 +91,7 @@ hr {
   .header .menu-btn:hover {
     background-color: var(--cerulean);
     border-radius: 10px;
+    transition: all 1s;
   }
   
   .header .logo {
@@ -448,7 +449,7 @@ footer {
 /* MEMES */
 
 .memes {
-    background-color: var(--blue);
+    background-color: var(--red);
     color: var(--white);
     padding-top: 15vh;
 }
