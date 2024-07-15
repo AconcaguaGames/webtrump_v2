@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H09MEK5PED"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-H09MEK5PED');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMGA</title>
+    <link rel="icon" type="image/x-icon" href="./assets/imgs/favicon.png">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/konva@9.3.11/konva.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/trumpify.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html"><img src="assets/imgs/trumpIcon.png" alt="Trump Icon"></a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li><a href="https://dexscreener.com/solana/gksf56lk6u3k3ddhj4nmdq6sp3hscrv8xcr1nqmqvm1d" target="blank">Charts</a></li>
+            <li><a href="memes.html">Memes!</a></li>
+            <li><a href="#" class="background-darkblue">Trumpify!</a></li>
+            <li><a href="https://app.trumpsol.xyz">Game App</a></li>
+        </ul>
+      </header>
+    <section class="memes trumpify">
+        <div class="col-100">
+            <h1>PUT ON A TRUMP STYLE</h1>
+        </div>
+       
+        <div class="canvas">
+            <div id="canvasContainer">
+                
+            </div>
+            <button id="flipButton" class="button-analog button-analog-long button-blue" class="customize">Flip</button>
+            <div id="editWig">
+                <button id="rotateLeftButton" class="customize button-analog button-analog-long button-blue">Rotate Left</button>
+                <button id="rotateRightButton" class="customize button-analog button-analog-long button-blue">Rotate Right</button>
+                <button id="scaleUpButton" class="customize button-analog button-analog-long button-blue">Larger</button>
+                <button id="scaleDownButton" class="customize button-analog button-analog-long button-blue">Smaller</button>
+            </div>
+        </div>
+        <div class="col-100 flex">
+            <div class="custom-file-upload">
+                <label for="imageLoader" class="button-analog button-analog-long button-blue label" id="labelLoader">
+                  Upload Image
+                </label>
+                <input type="file" id="imageLoader" name="imageLoader" class="button-analog button-analog-long button-green" style="margin-right: 1rem;">
+            </div>
+            <!--<input class="button-analog button-analog-long button-green" style="margin-right: 1rem;" type="file" id="imageLoader" name="imageLoader"/>-->
+            <button id="eraseButton" class="button-analog button-analog-long button-red">Erase</button>
+        </div>
+        <div id="buttons"><button id="save" class="button-analog button-analog-long button-green">Save as image</button></div>
+    </section>
+    <footer>
+        <div class="col-container ">
+            <div class="col-left">
+                <p>trumpsolcommunity@gmail.com</p>
+                <p>Copyright © $TRUMP 2024 - All right reserved</p>
+            </div>
+            <div class="col-right">
+                <a class="button-analog button-analog-circle" href="https://twitter.com/trumpsolanacoin" target="_blank"><img src="./assets/imgs/x.svg" alt="twitter/X"></a>
+                <a class="button-analog button-analog-circle" href="https://t.co/MQiKZ2iTFq" target="_blank"><img src="./assets/imgs/share.svg" alt="Share"></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        
+        var stage;
+        document.addEventListener('DOMContentLoaded', function () {
+
+            if (window.innerWidth > 630) {
+                stage = new Konva.Stage({
+                    container: 'canvasContainer',
+                    width: 500,
+                    height: 500
+                });
+            } else {
+                stage = new Konva.Stage({
+                    container: 'canvasContainer',
+                    width: 300,
+                    height: 300
+                });
+            }
+
+            const layer = new Konva.Layer();
+            stage.add(layer);
+
+            // Función para agregar imagen inicial al canvas
+            function addInitialImage() {
+                const imageObj = new Image();
+                
+                imageObj.onload = function () {
+                    
+                    // Verificar si el ancho de la imagen es 630
+                    const width = imageObj.width;
+                    const height = imageObj.height;
+                    
+                    let imgWidth = 200;
+                    let imgHeight = 150;
+                    
+                    if (width < 630) {
+                        imgWidth = 100;
+                        imgHeight = 70;
+                    }
+                    
+                    const initialImg = new Konva.Image({
+                        x: 50,
+                        y: 50,
+                        image: imageObj,
+                        width: imgWidth,
+                        height: imgHeight,
+                        draggable: true
+                    });
+                    
+                    layer.add(initialImg);
+                    layer.draw();
+
+                    // Agregar evento de clic al botón Flip
+                    document.getElementById('flipButton').addEventListener('click', function() {
+                        flipImage(initialImg);
+                    });
+                    // Girar
+                    document.getElementById('rotateLeftButton').addEventListener('click', function() {
+                        rotateImage(initialImg, initialImg.rotation() - 10); // Ajusta el ángulo de rotación según sea necesario
+                    });
+
+                    document.getElementById('rotateRightButton').addEventListener('click', function() {
+                        rotateImage(initialImg, initialImg.rotation() + 10); // Ajusta el ángulo de rotación según sea necesario
+                    });
+                    
+                    // Size
+                    document.getElementById('scaleUpButton').addEventListener('click', function() {
+                        scaleImage(initialImg, initialImg.scaleX() + 0.1, initialImg.scaleY() + 0.1);
+                    });
+
+                    // Agregar evento de clic al botón para achicar
+                    document.getElementById('scaleDownButton').addEventListener('click', function() {
+                        scaleImage(initialImg, initialImg.scaleX() - 0.1, initialImg.scaleY() - 0.1);
+                    });
+                };
+                imageObj.src = 'assets/imgs/trumpHair.png'; // Reemplaza con la URL de tu imagen inicial
+            }
+            
+
+            // Función para rotar la imagen
+            function rotateImage(image, rotation) {
+                image.rotation(rotation);
+                layer.batchDraw();
+            }
+
+            // Llamar a la función para agregar la imagen inicial
+            
+            // Función para voltear la imagen horizontalmente
+            function flipImage(image) {
+                image.scaleX(image.scaleX() * -1);
+                layer.draw();
+            }
+
+            // Función para cambiar la escala de la imagen
+            function scaleImage(image, scaleX, scaleY) {
+                image.scaleX(scaleX);
+                image.scaleY(scaleY);
+                layer.batchDraw();
+            }
+
+            const imageLoader = document.getElementById('imageLoader');
+
+            // Cargar una nueva imagen al canvas
+            imageLoader.addEventListener('change', function (e) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    const img = new Image();
+                    img.onload = function () {
+
+                        const imgWidth = img.width;
+                        const imgHeight = img.height;
+
+                        if (imgWidth < 200) {
+                            // Si la imagen es menor a 200px de ancho, mantener su tamaño
+                            stage.width(imgWidth);
+                            stage.height(imgHeight);
+                        } else {
+                            // Escala el stage para mantener la proporción de la imagen
+                            const maxWidth = window.innerWidth > 630 ? 500 : 300;
+                            const scale = maxWidth / imgWidth;
+                            const scaledWidth = imgWidth * scale;
+                            const scaledHeight = imgHeight * scale;
+
+                            stage.width(scaledWidth);
+                            stage.height(scaledHeight);
+                        }
+
+                        const konvaImage = new Konva.Image({
+                            x: 0,
+                            y: 0,
+                            image: img,
+                            width: imgWidth < 200 ? imgWidth : stage.width(),
+                            height: imgWidth < 200 ? imgHeight : stage.height(),
+                            draggable: false
+                        });
+
+                        // Asegura que la imagen cargada esté debajo de la imagen inicial
+                        layer.add(konvaImage);
+                        konvaImage.moveToBottom();
+                        layer.draw();
+                        // Cambiar el input a un botón de guardar
+                        imageLoader.style.display = 'none';
+
+                        const labelLoader = document.getElementById('labelLoader');
+                        labelLoader.style.display = 'none';/*
+                        /*/// Mostrar el botón "Erase"
+                        const eraseButton = document.getElementById('eraseButton');
+                        eraseButton.style.display = 'inline-block';
+                        // Mostrar el botón "Edit"
+                        const editWig = document.getElementById('editWig');
+                        editWig.style.display = 'inline-block';
+                         // Mostrar el botón "Flip"
+                         const flipButton = document.getElementById('flipButton');
+                         flipButton.style.display = 'inline-block';
+                         // Mostrar el botón "Guardar Archivo"
+                         const saveButton = document.getElementById('save');
+                         saveButton.style.display = 'inline-block';
+                    }
+                    img.src = event.target.result;
+                    
+                }
+                reader.readAsDataURL(e.target.files[0]);
+                var json = stage.toJSON();
+                console.log(json);
+                addInitialImage();
+            });
+
+            // Función para guardar la imagen
+            function downloadURI(uri, name) {
+                var link = document.createElement('a');
+                link.download = name;
+                link.href = uri;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                delete link;
+            }
+
+            document.getElementById('save').addEventListener(
+                'click',
+                function () {
+                var dataURL = stage.toDataURL({ pixelRatio: 1 });
+                downloadURI(dataURL, 'stage.png');
+                },
+                false
+            );
+
+            // Función para borrar la imagen
+            document.getElementById('eraseButton').addEventListener('click', function() {
+                // Tu código para borrar la imagen del lienzo
+                // Por ejemplo:
+                layer.destroyChildren();
+                layer.draw();
+
+                const labelLoader = document.getElementById('labelLoader');
+                labelLoader.style.display = 'inline-block';
+
+                // Mostrar el botón "Seleccionar Archivo"
+                imageLoader.type = 'file';
+                imageLoader.value = '';
+                imageLoader.addEventListener('change', arguments.callee);
+
+                // Ocultar el botón "Erase"
+                const eraseButton = document.getElementById('eraseButton');
+                eraseButton.style.display = 'none';
+               
+                // Ocultar el botón "Guardar Archivo"
+                const saveButton = document.getElementById('save');
+                saveButton.style.display = 'none';
+
+                // Agregar imagen
+                //addInitialImage();
+            });
+
+
+        });
+    </script>
+</body>
+</html>
