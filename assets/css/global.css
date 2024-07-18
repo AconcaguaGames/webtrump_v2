@@ -297,6 +297,48 @@ footer {
     padding-inline: 15px;
 }
 
+/* DONATE */
+
+#donate {
+  padding: 8rem 0;
+  background-color: var(--navy);
+  background-image: url(../imgs/bg3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#donate .col-container {
+  background-image: url(../imgs/White-Paper-Texture.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 5rem 0;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+}
+
+#donate .col-container h2 {
+  margin-bottom: 2rem;
+}
+
+#donate .col-container p {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+#donate .col-container strong {
+  color: black;
+}
+
+#donate .col-container .signature {
+  width: 200px;
+  float: right;
+}
+
+#donate .col-container a {
+  margin-top: 2rem;
+}
 
 /* COL SYSTEM */
 .col-container {
@@ -396,6 +438,11 @@ footer {
     margin: auto;
     padding-inline: 20px;
   }
+  
+  #donate .col-container {
+    padding: 3rem 1.5rem;
+    width: 80%;
+  }
 }
 
 @media (max-width: 810px) { 
@@ -431,6 +478,12 @@ footer {
         text-align: center;
     }
 
+    
+    #donate .col-container {
+      padding: 3rem 1.5rem;
+      width: 80%;
+    }
+
 }
 
 
@@ -443,6 +496,11 @@ footer {
         border-radius: 25px;
         text-decoration: none;
         font-size: 15px;
+    }
+
+    #donate .col-container {
+      padding: 3rem 1.5rem;
+      width: 85%;
     }
 }
 
