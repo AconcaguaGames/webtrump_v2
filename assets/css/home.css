@@ -415,7 +415,7 @@
     position: relative;
 }
 
-#play>div::before {
+#play .playgame::before {
     content: '';
     display: block;
     background: url('../imgs/eagle.svg');
@@ -440,7 +440,9 @@
     color: var(--cerulean);
 }
 
-
+#play img {
+    width: 100%;
+}
 
 #play .video-container {
     position: relative;
@@ -465,30 +467,7 @@
     column-gap: 40px;
 }
 
-#play #download-ctas::before, #play #download-ctas::after {
-    content: '';
-    display: block;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-    width: 496px;
-    height: 635px;
-    position: absolute;
-    z-index: 10;
-}
 
-
-#play #download-ctas::before {
-    background: url('../imgs/hilary.svg');
-    left: -205px;
-    bottom: -193px;
-}
-
-#play #download-ctas::after {
-    background: url('../imgs/biden.svg');
-    right: -174px;
-    width: 473px;
-    bottom: -195px;
-}
 
 .donwload-app {
     width: 250px;
@@ -515,6 +494,13 @@
     opacity: 1;
 }
 
+#donate .map {
+    width: 50%;
+    margin-bottom: 1rem;
+    margin: 0 auto;
+    display: flex;
+    margin-bottom: 3rem;
+}
 
 /* MAKE MEMES GREAT AGAIN */
 
@@ -863,6 +849,14 @@
         z-index: -10;
         transform: rotate(13deg);
         opacity: 0.2;
+    }
+
+    #donate .map {
+        width: 90%;
+        margin-bottom: 1rem;
+        margin: 0 auto;
+        display: flex;
+        margin-bottom: 2rem;
     }
 }
 
