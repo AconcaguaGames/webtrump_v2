@@ -858,6 +858,10 @@
         display: flex;
         margin-bottom: 2rem;
     }
+
+    #play .playgame::before {
+        display: none;
+    }
 }
 
 @media (max-width: 380px) {
@@ -865,5 +869,8 @@
         max-width: 300px !important;
         margin: auto;
         padding-inline: 20px;
+    }
+    #play .playgame::before {
+        display: none;
     }
 }
