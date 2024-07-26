@@ -122,7 +122,7 @@ hr {
   }
   
   .header .menu-icon .navicon {
-    background: #fff;
+    background: #00438a;
     display: block;
     height: 2px;
     position: relative;
@@ -132,7 +132,7 @@ hr {
   
   .header .menu-icon .navicon:before,
   .header .menu-icon .navicon:after {
-    background: #fff;
+    background: #00438a;
     content: '';
     display: block;
     height: 100%;
