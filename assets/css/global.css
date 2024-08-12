@@ -405,6 +405,17 @@ footer {
     border-color: #555 transparent transparent transparent;
   }
   
+.airdrop {
+  color: white;
+  display: flex;
+  max-width: 1300px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 8rem;
+  padding-bottom: 2rem;
+  align-content: center;
+}
 
 /* animations */
 
@@ -442,6 +453,10 @@ footer {
   #donate .col-container {
     padding: 3rem 1.5rem;
     width: 80%;
+  }
+
+  .airdrop {
+    flex-direction: column;
   }
 }
 
@@ -482,6 +497,10 @@ footer {
     #donate .col-container {
       padding: 3rem 1.5rem;
       width: 80%;
+    }
+
+    .airdrop img {
+      width: 90%;
     }
 
 }

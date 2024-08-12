@@ -1,5 +1,9 @@
 /* GALLERY */
 
+body {
+    background-color: var(--red);
+}
+
 #gallery {
     display: flex;
     flex-wrap: wrap;

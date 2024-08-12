@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H09MEK5PED"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-H09MEK5PED');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMGA</title>
+    <link rel="icon" type="image/x-icon" href="./assets/imgs/favicon.png">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/memes.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html"><img src="assets/imgs/trumpIcon.png" alt="Trump Icon"></a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li style="display: none;"><a href="https://dexscreener.com/solana/gksf56lk6u3k3ddhj4nmdq6sp3hscrv8xcr1nqmqvm1d" target="blank">Charts</a></li>
+            <li><a href="airdrop.html">Airdrop</a></li>
+            <li><a href="clicker.html" class="active">Clicker</a></li>
+            <li><a href="trumpify.html">Trumpify!</a></li>
+            <li><a href="https://www.donaldjtrump.com/crypto">Contribute</a></li>
+        </ul>
+      </header>
+    <section class="memes">
+        <div class="col-100">
+            <h1>MEMES TO <strong>MAKE AMERICA GREAT AGAIN</strong></h1>
+            <p>We collected memes generated for different users and believers of this project, feel free to download and replicate them anywhere you want.</p> 
+        </div>
+    </section>
+    <footer>
+        <div class="col-container ">
+            <div class="col-left">
+                <p>trumpsolcommunity@gmail.com</p>
+                <p>Copyright © $TRUMP 2024 - All right reserved</p>
+            </div>
+            <div class="col-right">
+                <a class="button-analog button-analog-circle" href="https://twitter.com/trumpsolanacoin" target="_blank"><img src="./assets/imgs/x.svg" alt="twitter/X"></a>
+                <a class="button-analog button-analog-circle" href="https://t.co/MQiKZ2iTFq" target="_blank"><img src="./assets/imgs/share.svg" alt="Share"></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Lista manual de nombres de archivos de imágenes
+        //const imageFiles = [ '3.jpg', '4.jpg', '5.jpg','6.jpg', '7.png', '2.jpg']; // Agrega aquí los nombres de tus imágenes
+        const imageFiles = [];
+        for (let i = 1; i <= 281; i++) {
+        imageFiles.push(`${i}.jpg`);
+        }
+        
+        const imagesPerPage = 20;
+        let currentPage = 1;
+
+        function displayImages(page) {
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = ''; // Limpiar galería
+
+            const start = (page - 1) * imagesPerPage;
+            const end = start + imagesPerPage;
+            const paginatedImages = imageFiles.slice(start, end);
+
+            paginatedImages.forEach(img => {
+                const imgElement = document.createElement('img');
+                imgElement.src = "assets/imgs/memes/" + img;
+                gallery.appendChild(imgElement);
+            });
+        }
+
+        function setupPagination() {
+            const paginationContainer = document.getElementById('pagination');
+            if (!paginationContainer) {
+                console.error('El contenedor de paginación no se encontró.');
+                return;
+            }
+
+            const totalPages = Math.ceil(imageFiles.length / imagesPerPage);
+
+            paginationContainer.innerHTML = ''; // Limpiar paginación
+
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.innerText = i;
+                button.addEventListener('click', () => {
+                    currentPage = i;
+                    displayImages(currentPage);
+                    updatePagination();
+                });
+                paginationContainer.appendChild(button);
+            }
+        }
+
+        function updatePagination() {
+            const buttons = document.querySelectorAll('.pagination button');
+            buttons.forEach((button, index) => {
+                button.disabled = (index + 1 === currentPage);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            displayImages(currentPage);
+            setupPagination();
+            updatePagination();
+        });
+        
+    </script>
+</body>
+</html>
