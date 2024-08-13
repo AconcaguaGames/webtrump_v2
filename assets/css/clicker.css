@@ -1,0 +1,173 @@
+/* TIMELINE */
+
+main {
+    padding: 100px 20px;
+    background-image: url(../img/ui/clouds.png);
+    background-repeat: repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url(../img/ui/clouds.png);
+}
+
+h1 {
+    font-size: 2rem;
+    line-height: 1.7;
+}
+
+h2 {
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.split-column {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero, .stats, .game-features, .rankings {
+    margin-bottom: 5rem;
+}
+
+.game-features {
+    margin-top: 5rem;
+}
+
+.split-column .buttonLarge, .cta .buttonLarge {
+    width: 209px;
+    height: 61px;
+}
+
+.stat-clicker {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.stats .stat-clicker img {
+    width: 50%;
+}
+
+.split-column img {
+    width: 100%;
+}
+
+h1, h2,h3 {
+    color: white;
+    text-transform: uppercase;
+}
+
+p, span, a {
+    font-size: 15px;
+    color: white;
+}
+
+header a {
+    font-size: 13.5px;
+}
+
+.rankings, .game-features, .cta {
+    text-align: center;
+}
+
+.cta .buttonLarge {
+    margin: 0 auto;
+}
+
+.hero .hero-text, .stats-text {
+    max-width: 50%;
+}
+
+.hero .hero-text p, .stats-text p {
+    max-width: 75%;
+}
+
+.stats-text h2 {
+    max-width: 80%;
+}
+
+.game-features .stat-clicker div, .rankings .stat-clicker div {
+    width: 50%;
+    margin: 24px;
+}
+
+.buttonLarge {
+    width: 190px;
+    background-image: url(../img/ui/longButton_Blue.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 53px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    color: white!important;
+    font-family: var(--secondary-font-family);
+    text-decoration: none;
+}
+
+.buttonLarge img {
+    width: 20px!important;
+    margin-right: 10px;
+}
+
+.buttonLarge:hover {
+    background-image: url(../img/ui/longButton_Green.svg);
+    color: white !important;
+}
+
+@media only screen and (max-width:1450px){
+  
+}
+
+@media only screen and (max-width:1000px){
+    .hero .hero-text, .stats-text {
+        max-width: 80%;
+    }
+
+    .stat-clicker, .split-column {
+        flex-direction: column;
+    }
+
+    .hero .hero-text p, .stats-text p {
+        max-width: 90%;
+    }
+
+    .stats-text h2 {
+        max-width: 90%;
+    }
+    .game-features .stat-clicker div, .rankings .stat-clicker div {
+        width: 80%;
+        margin: 24px auto;
+    }
+    
+}
+
+@media only screen and (max-width: 800px) {
+    .hero .hero-text, .stats-text {
+        max-width: 100%;
+    }
+
+    .split-column {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .stat-clicker, .split-column {
+        flex-direction: column;
+    }
+
+    .hero .hero-text p, .stats-text p {
+        max-width: 90%;
+    }
+
+    .stats-text h2 {
+        max-width: 90%;
+    }
+}

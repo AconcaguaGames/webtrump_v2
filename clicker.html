@@ -50,7 +50,6 @@
     <footer>
         <div class="col-container ">
             <div class="col-left">
-                <p>trumpsolcommunity@gmail.com</p>
                 <p>Copyright © $TRUMP 2024 - All right reserved</p>
             </div>
             <div class="col-right">
@@ -59,69 +58,5 @@
             </div>
         </div>
     </footer>
-    
-    <script>
-        // Lista manual de nombres de archivos de imágenes
-        //const imageFiles = [ '3.jpg', '4.jpg', '5.jpg','6.jpg', '7.png', '2.jpg']; // Agrega aquí los nombres de tus imágenes
-        const imageFiles = [];
-        for (let i = 1; i <= 281; i++) {
-        imageFiles.push(`${i}.jpg`);
-        }
-        
-        const imagesPerPage = 20;
-        let currentPage = 1;
-
-        function displayImages(page) {
-            const gallery = document.getElementById('gallery');
-            gallery.innerHTML = ''; // Limpiar galería
-
-            const start = (page - 1) * imagesPerPage;
-            const end = start + imagesPerPage;
-            const paginatedImages = imageFiles.slice(start, end);
-
-            paginatedImages.forEach(img => {
-                const imgElement = document.createElement('img');
-                imgElement.src = "assets/imgs/memes/" + img;
-                gallery.appendChild(imgElement);
-            });
-        }
-
-        function setupPagination() {
-            const paginationContainer = document.getElementById('pagination');
-            if (!paginationContainer) {
-                console.error('El contenedor de paginación no se encontró.');
-                return;
-            }
-
-            const totalPages = Math.ceil(imageFiles.length / imagesPerPage);
-
-            paginationContainer.innerHTML = ''; // Limpiar paginación
-
-            for (let i = 1; i <= totalPages; i++) {
-                const button = document.createElement('button');
-                button.innerText = i;
-                button.addEventListener('click', () => {
-                    currentPage = i;
-                    displayImages(currentPage);
-                    updatePagination();
-                });
-                paginationContainer.appendChild(button);
-            }
-        }
-
-        function updatePagination() {
-            const buttons = document.querySelectorAll('.pagination button');
-            buttons.forEach((button, index) => {
-                button.disabled = (index + 1 === currentPage);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            displayImages(currentPage);
-            setupPagination();
-            updatePagination();
-        });
-        
-    </script>
 </body>
 </html>

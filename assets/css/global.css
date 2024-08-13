@@ -417,6 +417,48 @@ footer {
   align-content: center;
 }
 
+.airdrop img {
+  max-width: 450px;
+}
+
+.airdrop span {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid white;
+  font-weight: bold;
+  background: var(--red);
+}
+
+.airdrop h1 {
+  margin: 2rem 0 1rem 0;
+  font-size: 47px;
+}
+
+.airdrop p {
+  margin: 1rem 0 1rem 0;
+}
+
+.active {
+  background-color: var(--cerulean)!important;
+}
+
+.active li a:hover, .active .menu-btn:hover {
+  background-color: var(--cerulean);
+  border-radius: 40px!important;
+  transition: all 1s;
+}
+
+.airdrop-main {
+  background-image: url(../imgs/bgWhite.png);
+}
+
+.airdrop .text {
+  background: var(--blue);
+  border: 1px solid;
+  padding-bottom: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
 /* animations */
 
 .grow { 
@@ -443,6 +485,13 @@ footer {
 
 /* RESPONSIVE */
 
+@media (max-width: 1400px) {
+    
+  .airdrop .col-50 {
+    width: 40%;
+  }
+}
+
 @media (max-width: 1024px) {
   body>section>div {
     max-width: 980px;
@@ -456,7 +505,7 @@ footer {
   }
 
   .airdrop {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 }
 
@@ -472,6 +521,10 @@ footer {
 
     .col-33, .col-40, .col-50, .col-60, .col-100 {
         width: 100%;
+    }
+    
+    .airdrop .col-50 {
+        width: 85%;
     }
 
     .col-container {
