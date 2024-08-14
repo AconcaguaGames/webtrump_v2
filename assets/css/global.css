@@ -372,7 +372,6 @@ footer {
 
 /* tooltip */
 
-
 .tooltip {
     position: relative;
     display: inline-block;
@@ -404,39 +403,6 @@ footer {
     border-style: solid;
     border-color: #555 transparent transparent transparent;
   }
-  
-.airdrop {
-  color: white;
-  display: flex;
-  max-width: 1300px;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  padding-top: 8rem;
-  padding-bottom: 2rem;
-  align-content: center;
-}
-
-.airdrop img {
-  max-width: 450px;
-}
-
-.airdrop span {
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border: 1px solid white;
-  font-weight: bold;
-  background: var(--red);
-}
-
-.airdrop h1 {
-  margin: 2rem 0 1rem 0;
-  font-size: 47px;
-}
-
-.airdrop p {
-  margin: 1rem 0 1rem 0;
-}
 
 .active {
   background-color: var(--cerulean)!important;
@@ -448,17 +414,6 @@ footer {
   transition: all 1s;
 }
 
-.airdrop-main {
-  background-image: url(../imgs/bgWhite.png);
-}
-
-.airdrop .text {
-  background: var(--blue);
-  border: 1px solid;
-  padding-bottom: 1rem;
-  padding-right: 2rem;
-  padding-left: 2rem;
-}
 /* animations */
 
 .grow { 
