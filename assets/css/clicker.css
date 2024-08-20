@@ -200,7 +200,16 @@ header a {
         width: 80%;
         margin: 24px auto;
     }
-    
+    .airdrop {
+        padding-top: 0;
+        flex-direction: column;
+    }
+    .airdrop-main {
+        padding-top: 15rem;
+    }
+    .col-40 {
+        width: 75%;
+    }
 }
 
 @media only screen and (max-width: 800px) {
@@ -225,5 +234,26 @@ header a {
 
     .stats-text h2 {
         max-width: 90%;
+    }
+
+    .stat-clicker img {
+        width: 100%;
+    }
+
+    .airdrop {
+        max-width: 378px;
+        padding-top: 0;
+        flex-direction: column;
+    }
+    .airdrop-main {
+        padding-top: 16rem;
+    }
+
+    .col-40 {
+        width: 100%;
+    }
+
+    .img-hero img {
+        width: 100%;
     }
 }
