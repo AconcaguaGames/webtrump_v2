@@ -57,10 +57,29 @@ hr {
 
 .header {
     position: fixed;
-    width: 100%;
+    width: 98%;
     z-index: 100;
+    padding: 0;
     margin: 15px;
   }
+
+  .header .buttonLarge {
+    width: 181px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    color: white!important;
+    font-family: var(--secondary-font-family);
+    text-decoration: none;
+    padding-top: 0!important;
+    height: 75px;
+  }
+
+  header .buttonLarge img {
+    padding-left: 0;
+    width: 20px!important;
+    margin-right: 10px;
+}
   
   .header ul {
     margin: 0;
